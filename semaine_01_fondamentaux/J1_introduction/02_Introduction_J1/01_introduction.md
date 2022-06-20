@@ -65,7 +65,7 @@ La Stack Queue se videra au fur et à mesure de l'exécution des callbacks, fonc
 
 Voici un schéma pour terminé, plus précis, de l'Event Loop dans le contexte de Node.js ou Navigateur avec la V8 :
 
-<img src="../images/event_loop.png" width="400" />
+<img src="../../../images/event_loop.png" width="400" />
 
 
 
