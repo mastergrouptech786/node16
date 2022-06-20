@@ -7,3 +7,8 @@ export function show(message){
 export function add(n1, n2){
     return n1 + n2 ;
 }
+
+// Export par défaut un par fichier 
+export default function Model(name){
+    this.name = name;
+}
