@@ -48,7 +48,11 @@ Node.js est parfaitement capable d'importer des modules qui ne sont pas dans le 
 const http = require('http');
 ```
 
+On peut également gérer les import/export comme vu précédement.
+
 ## 01 Exercice customer
+
+Gérez les import/export avec le type module dans votre package.json
 
 Créez un dossier **customer** dans lequel vous créez deux fichiers utils.js et index.js, le fichier utils est un module permettant d'écrire le code métier.
 
@@ -63,13 +67,13 @@ const priceHT = [
     { name : "Rasberry", priceHT : 2.5, priceTTC : null },
 ];
 
-// Modifiez le tableau pour mettre les prix TTC
-
 ```
+
+1. Modifiez le tableau pour mettre les prix TTC et affichez en console.
 
 *Indications : gérez les décimales dans les prix TTC à calculer, fixez celui-ci à 2 décimales après la virgule.*
 
-## Module tiers
+### Module tiers
 
 Il existe un grand nombre de modules tiers que l'on peut installer dans un projet Node.js. Nous allons utiliser le module **dotenv** qui permet de définir facilement des variables d'environnement.
 
@@ -83,13 +87,20 @@ process.env.NODE_ENV= 'production';
 
 Vous allez maintenant utiliser un module tier : dotenv il vous permettra de définir vos variables d'environnement dans un fichier à part .env. Ce fichier sera placer à la racine de votre projet.
 
-## 02 Exercice d'application
 
-1. Installez le nouveau projet discovery_env. Pensez à utiliser une commande du cours.
+Améliorez l'exercice précédent 
 
-2. Installez maintenant la dépendance dotenv dans votre projet.
+2. Installez maintenant la dépendance **dotenv** dans votre projet. Vous définirez des variables d'environnements pour définir : une TVA et un pays, que vous utiliserez dans l'exercice pour calculer les prix.
 
-3. Utilisez la documentation https://www.npmjs.com/package/dotenv et définissez la variable de production/developpement suivant :
+
+- Contenu du fichier .env à la racine de votre projet.
+
+```txt
+COUNTRY=fr
+TVA=.2
+```
+
+*Utilisez la documentation https://www.npmjs.com/package/dotenv et définissez la variable de production/developpement suivant*
 
 ```js
 
