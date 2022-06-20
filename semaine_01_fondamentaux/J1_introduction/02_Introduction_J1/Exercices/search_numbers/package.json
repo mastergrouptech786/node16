@@ -1,0 +1,13 @@
+{
+  "name": "search_numbers",
+  "version": "1.0.0",
+  "description": "## Les étapes",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index_v2.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type" : "module"
+}
