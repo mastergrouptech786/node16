@@ -131,6 +131,10 @@ Le jeu du Chifoumi se fera avec deux joueurs créer de manière automatique, par
 
 Affichez une fois le jeu terminé les points gagnés par chaque joueur ainsi que le gagnant de la partie.
 
-### Partie optionnelle Challenge
+### Partie 1 
 
 Pensez à relancer le jeu en console et à réinitialiser les résultats pour continuer à jouer.
+
+### Partie 2 
+
+Essayez de réfléchir à un système de persistance des informations dans un fichier pour mémoriser les résultats de chacune des parties.
