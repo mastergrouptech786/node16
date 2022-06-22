@@ -1,6 +1,5 @@
 import { createServer } from "http";
 import students from "./Data/students.js";
-
 import { show, shuffle } from "./utils.js";
 
 const hostname = "localhost";
@@ -18,9 +17,11 @@ const server = createServer((req, res) => {
   }
 
   if (url === "") {
+
     res.writeHead(200, {
       "Content-Type": "text/html",
     });
+
     res.end(`
 <!DOCTYPE html>
 <html>
@@ -43,6 +44,7 @@ const server = createServer((req, res) => {
     res.writeHead(200, {
       "Content-Type": "text/html",
     });
+
     res.end(`
   <!DOCTYPE html>
   <html>
@@ -58,6 +60,7 @@ const server = createServer((req, res) => {
   </body>
   </html>
   `);
+  
     return;
   }
 });
