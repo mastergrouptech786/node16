@@ -1,0 +1,6 @@
+extends layout.pug
+
+block sidebar
+    ul
+        each student in students
+            li= student.name + " " + student.age

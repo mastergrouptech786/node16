@@ -1,0 +1,19 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        if titlePage
+            title #{titlePage}
+
+        link(rel="stylesheet" href="/bootstrap")
+
+    body
+        include partials/nav.pug
+        div(class='container')
+            div(class='row')
+                div(class='col-sm-8')
+                    block content 
+                div(class='col-sm-4')
+                    block sidebar
+
+        footer © Copyright, Tous droits réservés

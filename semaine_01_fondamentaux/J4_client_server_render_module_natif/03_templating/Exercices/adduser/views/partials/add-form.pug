@@ -1,0 +1,13 @@
+
+include message.pug
+
+form(action="/user", method="POST")
+    div(class="form-group")
+        label Name
+            input(class="form-control", name="name", type="text")
+    
+    div(class="form-group")
+        label Age
+            input(class="form-control", name="age", type="text")
+
+    button(type="submit", class="btn btn-primary") Ajouter
