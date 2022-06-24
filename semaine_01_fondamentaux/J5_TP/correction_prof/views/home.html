@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ajoutez un utilisateur</title>
+    <link rel="stylesheet" href="/style" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="text-primary">
+            <a>Ajouter un user</a>
+            <a type="submit" class="btn" href="/users">users</a>
+        </nav>
+    </div>
+    <div class="container">
+        <form action="/" method="POST">
+            <label>Name
+                <input class="form-control" name="name" type="text" />
+            </label>
+            <label>Date
+                <input class="form-control" name="date" type="date" />
+            </label>
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+        </form>
+    </div>
+</body>
+</html>
