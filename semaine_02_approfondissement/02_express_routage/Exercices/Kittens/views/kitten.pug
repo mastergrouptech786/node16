@@ -1,0 +1,10 @@
+extends layout.pug
+
+block content
+    h1 Kitten
+        p #{kitten.name} #{kitten.age}
+
+        div 
+            img(src=`/images/${kitten.image}` width=200 ) 
+
+        div #{kitten.description}
