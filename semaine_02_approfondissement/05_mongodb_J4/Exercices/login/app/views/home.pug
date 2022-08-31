@@ -1,0 +1,16 @@
+extends layouts/master.pug 
+
+block content
+    form(class="row g-3", action="/login", method="post")
+        if message
+            div(class="alert alert-warning") #{message}
+        div.col-md-6
+            label(class="form-label") Email
+            input(type="email", class="form-control", name="email")
+
+        div.col-md-6
+            label(class="form-label") Password
+            input(type="password", class="form-control", name="password")
+
+        div.col-md-12
+            button(type="submit", class="btn btn-primary") Sign in
