@@ -17,12 +17,13 @@ export default async function (req, res) {
 
   // TODO verif email
 
-  const { isAuth, name } = await verif(email, password) ;
+  const { _id, isAuth, name } = await verif({password, email}) ;
 
   if ( isAuth === true) {
 
     req.session.auth = true ;
     req.session.name = name ;
+    req.session._id = _id ;
 
     res.redirect("/admin");
 

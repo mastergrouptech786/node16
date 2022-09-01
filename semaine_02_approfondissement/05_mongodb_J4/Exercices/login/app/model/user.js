@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
 
 const UserModel = mongoose.model("users", UserSchema);
 
-export async function  find(email, password) {
+export async function  find({email, password}) {
 
   const users =  await UserModel.find({
     email : email, 
@@ -28,19 +28,25 @@ export async function  find(email, password) {
   return null;
 }
 
-export async function verif(email, password) {
+export async function verif({email, password}) {
+  // le findOne retourne un littéral
   const user = await UserModel.findOne({
     email : email
-  }, {_id:0, password: 1, name: 1 });
+  }, {_id: 1, password: 1, name: 1, countConnect : 1 });
 
-  if (user === undefined) return { isAuth: false, name: null };
+  if (user === undefined) return { _id: null, isAuth: false, name: null };
 
   // await => attend que l'asynchronisme de cet action se termine
   const match = await bcrypt.compare(password, user.password);
 
   if (match) {
-    return { isAuth: true, name: user.name };
+    
+    user.name = "ANTOINE"
+    user.countConnect = user.countConnect + 1;
+    console.log('ici' , user);
+
+    return { _id : user._id,  isAuth: true, name: user.name };
   }
 
-  return { isAuth: false, name: null };
+  return {  _id: null, isAuth: false, name: null };
 }

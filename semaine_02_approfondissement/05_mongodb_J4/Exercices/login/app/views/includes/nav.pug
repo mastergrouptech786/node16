@@ -1,0 +1,9 @@
+nav
+    ul 
+        li 
+            a(href="/") Home
+        li
+            a(href="/admin") Admin
+        if locals.isAuth
+            li
+                a(href="/logout") logout
