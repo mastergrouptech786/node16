@@ -1,13 +1,15 @@
 import express from "express";
 import session from "express-session";
 import router from './routers/login.js';
-
-import { connect } from './model/user.js';
-
-connect().then(console.log);
+import mongoose from "mongoose";
 
 const app = express();
 const port = 3002;
+
+const init = await mongoose.connect(
+  "mongodb://root:example@mongo:27017",
+  { useNewUrlParser: true, useUnifiedTopology: true }
+);
 
 app.use(express.static('public'));
 app.set("view engine", "pug");

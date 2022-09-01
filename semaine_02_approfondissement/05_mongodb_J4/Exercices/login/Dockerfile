@@ -9,6 +9,10 @@ RUN npm install
 
 RUN npm install nodemon --global
 
+RUN npm install dotenv --save
+
+RUN node install.js
+
 COPY . .
 
 EXPOSE 3002
