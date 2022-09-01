@@ -1,52 +1,51 @@
 import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 
-const UserSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  password: String,
-});
+import { UserModel } from "./UserMode.js";
 
-const UserModel = mongoose.model("users", UserSchema);
-
-export async function  find({email, password}) {
-
-  const users =  await UserModel.find({
-    email : email, 
-    password : password
-  }, {
-    _id:0, 
-    password: 0 
+export async function connect() {
+  const conn = await mongoose.connect("mongodb://root:example@mongo:27017", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   });
-
-  if (user) {
-    const { name, email, id } = user;
-
-    return { name, email, id };
-  }
-
-  return null;
 }
 
-export async function verif({email, password}) {
+export async function find(id) {
+  const conn = await connect();
+  const user = await UserModel.findOne({ _id: id }, { password: 0 });
+
+  return {
+    name: user.name,
+    email: user.email,
+    _id: user._id,
+    count: user.count,
+  };
+}
+
+export async function verif({ email, password }) {
+  const conn = await connect();
   // le findOne retourne un littéral
   const user = await UserModel.findOne({
-    email : email
-  }, {_id: 1, password: 1, name: 1, countConnect : 1 });
+    email: email,
+  });
 
-  if (user === undefined) return { _id: null, isAuth: false, name: null };
+  if (user === undefined)
+    return { _id: null, isAuth: false, name: null, count: 0 };
 
   // await => attend que l'asynchronisme de cet action se termine
   const match = await bcrypt.compare(password, user.password);
 
   if (match) {
-    
-    user.name = "ANTOINE"
-    user.countConnect = user.countConnect + 1;
-    console.log('ici' , user);
+    user.count = user.count + 1;
+    await user.save();
 
-    return { _id : user._id,  isAuth: true, name: user.name };
+    return {
+      _id: user._id,
+      isAuth: true,
+      name: user.name,
+      count: user.count,
+    };
   }
 
-  return {  _id: null, isAuth: false, name: null };
+  return { _id: null, isAuth: false, name: null, count: 0 };
 }

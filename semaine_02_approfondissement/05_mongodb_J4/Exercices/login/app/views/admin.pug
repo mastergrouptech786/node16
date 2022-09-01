@@ -2,4 +2,9 @@ extends layouts/master.pug
 
 block content
     h1 Admin
-    p bienvenu à #{name}
+    p bienvenu à #{name} count : #{count}
+
+    if status
+        <p>Status : Open</p>
+    else
+        <p>Status : Closed</p>

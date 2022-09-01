@@ -6,11 +6,6 @@ import mongoose from "mongoose";
 const app = express();
 const port = 3002;
 
-const init = mongoose.connect("mongodb://root:example@mongo:27017", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
 app.use(express.static("public"));
 app.set("view engine", "pug");
 // récupérer les données post sous forme d'un JSON
