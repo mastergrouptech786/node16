@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-import { ProductModel } from "./model/PorductMode.js";
+import { ProductModel } from "./model/ProductModel.js";
 import { connect } from "./model/product.js";
 
 import data from "./Data/products.js";
