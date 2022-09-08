@@ -1,8 +1,13 @@
 import mongoose from "mongoose";
-import { ProductModel } from "./PorductMode.js";
+import { ProductModel } from "./ProductModel.js";
+
+import * as dotenv from "dotenv";
+dotenv.config();
+const { DB_PASSWORD, DB_NAME, DB_LOGIN, DB_PORT } = process.env;
 
 export async function connect() {
-  const conn = await mongoose.connect("mongodb://root:example@mongo:27017", {
+  const conn = await mongoose.connect(`mongodb://${DB_LOGIN}:${DB_PASSWORD}@mongo:${DB_PORT}/?authSource=admin`, {
+    dbName: DB_NAME,
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
